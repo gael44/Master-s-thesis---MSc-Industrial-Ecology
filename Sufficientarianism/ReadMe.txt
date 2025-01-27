@@ -1,0 +1,11 @@
+Guide sufficientarianism operationalization file:
+
+
+Graph of the scripts, data files and manual operations
+
+The code to operationalize sufficientarianism is structured in 3 steps. 
+The first step consists in downloading Ecoinvent LCI database (script: ecoinvent_extraction.py) , filtering it with the DLS description of Vélez-Henao (2023) of Decent Living Standards (DLS) made with Ecoinvent markets, and extracting reference flows from these markets using the file 'FilenameToActivityLookup' (script: filtering ecoinvent with DLS requirements). The later is downloaded at the same time as Ecoinvent. The reference flow and the DLS quantities are output in the DLS_requirement_Exiobase excel File. 
+
+The second step is consists in converting physical DLS in monetary terms. To do so, we matched the DLS-reference flow to their Harmonized System (HS) code. The HS codes are available in the Deliverable>Data>Price>Commoditycodes2024.xlsx. Then, we collected international trade data () on the ComTrade database for each DLS using their HS code for the year 2021. With this data we calculated average prices of each commodities and finally obtained the DLS in monetary term (script: price.py). Note that DLS corresponding to services we let out of the analysis because of price missing data in the ComTrade database. Finally, in this second step we matched DLS to Exiobase sectors using Steubing et al (2022). The precise methodology for this matching procedure is available in the DLS_requirements_Exiobase file.
+
+The last step consists in transforming the DLS monetary values into an ICIO demand vector, and the associated footprint (script: Generating_Y_sufficientarianism). First we build an exiobase vector from the DLS values (script: Building_Y_DLS_exiobase.py) where we aggregated the EU countries into a single region. We splited DLS between national production and various imports following the distribution of the sectorial demand in the Y vector of exiobase 2018. Then, we matched the Exiobase DLS vector to ICIO sectors following the correspondence available in the concordance matrix ICIO. Finally, we aggregated the different ROW regions into a single region and disaggregated the construction sector for the EU in the new ICIO vector.  
