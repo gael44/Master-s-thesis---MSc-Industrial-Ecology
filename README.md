@@ -7,4 +7,8 @@ There are 6 folders on this repository:
 - 'Egalitarianism', 'Liberal Egalitarianism', and 'Sufficientarianism': scripts and data to build justice footprint scenarios
 - 'Circular economy policy': scripts and data implementing CEP into ICIO tables.
 - 'Results analysis': scripts performing the scenario comparision
+
+Some data is missing in this repository but is available on request. These data are: 
+- the ICIO tables (Kopp, 2025) used as input in the 'Cleaning and shaping ICIO'
+- the Exiobase Y matrix in the sufficientarianism folder.
  
